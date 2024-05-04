@@ -34,7 +34,7 @@ export class CoursesComponent {
                 ...course,
                 code: course.code.toUpperCase()
             })).filter(course =>
-                course.code.toLowerCase().includes(this.searchTerm.toLowerCase()) || course.coursename.toLowerCase().includes(this.searchTerm.toLowerCase())
+                course.code.toUpperCase().includes(this.searchTerm.toUpperCase()) || course.coursename.toUpperCase().includes(this.searchTerm.toUpperCase())
             );
         },
         error: (err) => {
