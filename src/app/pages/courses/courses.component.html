@@ -1,7 +1,9 @@
 <header>
 <h1>Web Development Program Course Schedule</h1>
-<p>In the schedule below, you can see which courses I will study during the two years of the web development program. </p>
+<p>In the table below, you can see which courses I will study during the two year web development program at MiUn. </p>
    <p>Sorting is done by clicking on column names. The link on the course code goes to the course description on the university's website.</p>
+  
+  
 </header>
 
 <div *ngIf="error" class="error">{{ error }}</div>
@@ -28,4 +30,122 @@
           </tr>
       </tbody>
 </table>
+
+<footer>
+     <details>
+    <summary>Klicka här för att läsa mer om applikationen</summary>
+    <h1 id="course-overview-application-my-2nd-angular-application">Course
+      Overview Application (My 2nd Angular Application)</h1>
+      <p>This project was generated with <a
+      href="https://github.com/angular/angular-cli">Angular CLI</a> version
+      17.3.6. This project is set-up for automatic deployment on <a
+      href="https://dynamic-phoenix-4e27ce.netlify.app/">Netlify</a>.</p>
+      <h2 id="project-overview">Project Overview</h2>
+      <p>This Angular application is designed to help users view, search, and
+      sort a list of courses for Webbutvecklingsprogrammet at MiUn. It fetches
+      data from an external source.</p>
+      <h2 id="features">Features</h2>
+      <ul>
+      <li><strong>View Courses</strong>: Display a list of courses fetched
+      from an external API.</li>
+      <li><strong>Search Functionality</strong>: Users can filter the data
+      (name and code fields).</li>
+      <li><strong>Sorting Capability</strong>: Allows alphabetic sorting of
+      courses by name, code, progression.</li>
+      </ul>
+      <h2 id="technology-stack">Technology Stack</h2>
+      <ul>
+      <li><strong>Frontend</strong>: Angular</li>
+      <li><strong>Styling</strong>: SCSS</li>
+      </ul>
+      <h3 id="key-features-of-the-courseservice">Key Features of the
+      CourseService :</h3>
+      <ol type="1">
+      <li><strong>HTTP Client Usage</strong>: Utilizes Angular’s HttpClient to
+      perform HTTP requests.</li>
+      <li><strong>Observable Data Handling</strong>: Returns an Observable of
+      an array of Course objects, leveraging RxJS to handle asynchronous data
+      streams.</li>
+      <li><strong>Service Method - getCourses() </strong>:
+      <ul>
+      <li>Fetches data from the API using
+      HttpClient.get&lt;Course[]&gt;(this.apiUrl) .</li>
+      <li>The method is designed to return an Observable array of Course
+      objects, allowing components to subscribe to this data and react to
+      changes over time.</li>
+      </ul></li>
+      </ol>
+      <h3 id="integration-in-component">Integration in Component:</h3>
+      <p>In courses.component.ts, the CourseService is injected
+      into the CoursesComponent :</p>
+      <ul>
+      <li><strong>Data Fetching</strong>: Inside the constructor,
+      loadCourses() is called to fetch course data immediately when the
+      component is instantiated.</li>
+      <li><strong>Data Subscription</strong>: The component subscribes to the
+      data returned by getCourses() , processes it to transform course codes
+      to uppercase, and filters based on a search term.</li>
+      <li><strong>Error Handling</strong>: Errors in fetching data are handled
+      by setting an error message which can be displayed in the component’s
+      template.</li>
+      </ul>
+      <h3 id="display-in-template">Display in Template:</h3>
+      <p>The courses.component.html template uses Angular’s
+      structural directives to conditionally display data:</p>
+      <ul>
+      <li><strong>Conditional Rendering</strong>: Uses *ngIf to check if there
+      are courses to display or if an error message should be shown.</li>
+      <li><strong>Data Binding</strong>: Implements two-way data binding with
+      [(ngModel)] for the search term and displays courses using *ngFor to
+      iterate over filteredCourses .</li>
+      </ul>
+      <h3 id="conclusion">Conclusion:</h3>
+      <p>CourseService fetches course data which is then displayed in the
+      CoursesComponent . This component allows for interaction such as
+      searching and sorting courses.</p>
+      <h2 id="setup-and-installation">Setup and Installation</h2>
+      <p>Ensure you have <a href="https://nodejs.org/">Node.js</a> and <a
+      href="https://angular.io/cli">Angular CLI</a> installed.</p>
+      <p>Clone the repository: bash git clone
+      https://github.com/Fa-collab1/angular2.git cd course-management-system
+      Install dependencies: bash npm install Run the application: bash ng
+      serve Navigate to <code>http://localhost:4200/</code> to view the
+      application.</p>
+      <h2 id="usage">Usage</h2>
+      <p>Once the application is running: - The main page displays a list of
+      all courses. - Use the search bar to filter courses by name or code. -
+      Click on column headers in the course table to sort the data.</p>
+      <h2 id="license">License</h2>
+      <p>This project is licensed under the <a href="LICENSE">MIT
+      License</a>.</p>
+      <hr />
+      <h2 id="development-server">Development server</h2>
+      <p>Run <code>ng serve</code> for a dev server. Navigate to
+      <code>http://localhost:4200/</code>. The application will automatically
+      reload if you change any of the source files.</p>
+      <h2 id="code-scaffolding">Code scaffolding</h2>
+      <p>Run <code>ng generate component component-name</code> to generate a
+      new component. You can also use
+      <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+      <h2 id="build">Build</h2>
+      <p>Run <code>ng build</code> to build the project. The build artifacts
+      will be stored in the <code>dist/</code> directory.</p>
+      <h2 id="running-unit-tests">Running unit tests</h2>
+      <p>Run <code>ng test</code> to execute the unit tests via <a
+      href="https://karma-runner.github.io">Karma</a>.</p>
+      <h2 id="running-end-to-end-tests">Running end-to-end tests</h2>
+      <p>Run <code>ng e2e</code> to execute the end-to-end tests via a
+      platform of your choice. To use this command, you need to first add a
+      package that implements end-to-end testing capabilities.</p>
+      <h2 id="further-help">Further help</h2>
+      <p>To get more help on the Angular CLI use <code>ng help</code> or go
+      check out the <a href="https://angular.io/cli">Angular CLI Overview and
+      Command Reference</a> page.</p>
+      
+  </details>
+
+</footer>
+
+  
+
 

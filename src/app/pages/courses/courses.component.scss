@@ -1,12 +1,12 @@
 
 @media (orientation: landscape) {
-header, input, table, .error {
+header, footer, input, table, .error {
     width: 60%; 
   }
 }
 
 @media (orientation: portrait) {
-  header, input, table, .error {
+  header, footer, input, table, .error {
     width: 95%; 
   }
 }
@@ -16,22 +16,35 @@ header, input, table, .error {
 
 *{
   font-size: 1.1em;
+  box-sizing: border-box;
 }
 
 
 
 
-header{
+header, footer{
 display: block;
 margin: auto;
 margin-bottom: 2vh;
 
-h1{
+}
+
+
+header {
+  position: relative;
+  color: white;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   font-size: 2em;
+  background-color: darkblue;
+  padding: 1vw;
 }
 
 
+details{
+  background-color: rgb(189, 251, 252);
+  font-size: 0.8em;
 }
+
 
 .error {
   display: block;
