@@ -5,6 +5,9 @@
 </header>
 
 <div *ngIf="error" class="error">{{ error }}</div>
+<ng-template #noDataTemplate>
+  <p class="error">No courses available.</p>
+</ng-template>
 <input type="text" placeholder="Search courses..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()">
 
 <table *ngIf="courses.length; else noDataTemplate">
@@ -26,6 +29,3 @@
       </tbody>
 </table>
 
-<ng-template #noDataTemplate>
-  <p>No courses available.</p>
-</ng-template>

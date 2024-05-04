@@ -1,12 +1,12 @@
 
 @media (orientation: landscape) {
-header, input, table {
+header, input, table, .error {
     width: 60%; 
   }
 }
 
 @media (orientation: portrait) {
-  header, input, table {
+  header, input, table, .error {
     width: 95%; 
   }
 }
@@ -34,9 +34,14 @@ h1{
 }
 
 .error {
-  color: red;
+  display: block;
+  margin: auto;
+  background-color: red;
+  color: #f0f0f0;
   font-weight: bold;
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 60s ease-out;
+  font-size: 3em;
+
 }
 
 input[type="text"] {
@@ -86,11 +91,14 @@ a {
 
 
 @keyframes fadeIn {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  50% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
