@@ -44,25 +44,29 @@ export class CoursesComponent {
     });
   }
 
-  // Sorterar de filtrerade kurserna baserat på angiven nyckel och ordning.
-  sort(key: string) {
-    if (this.sortKey === key) {
-      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc'; // Byter sortordning om samma nyckel sorteras igen.
-      this.filteredCourses.reverse(); // Vänder på ordningen av listan.
-    } else {
-      this.sortOrder = 'asc';
-      this.sortKey = key;
-      this.filteredCourses.sort((a, b) => { // Utför sorteringen baserat på den valda nyckeln.
-        if (a[key] < b[key]) {
-          return this.sortOrder === 'asc' ? -1 : 1;
-        } else if (a[key] > b[key]) {
-          return this.sortOrder === 'asc' ? 1 : -1;
-        } else {
-          return 0;
-        }
-      });
-    }
+// Sorterar de filtrerade kurserna baserat på angiven nyckel och ordning.
+sort(key: string) {
+  if (this.sortKey !== key) {
+    this.sortOrder = 'asc';  // Sätt standardordningen till 'asc' om en ny kolumn valts
+    this.sortKey = key;  // Spara vilken kolumn som ska sorteras
+  } else {
+    // Om samma kolumn väljs igen, byt ordning
+    this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
   }
+
+  this.filteredCourses.sort((a, b) => {
+    let valueA = a[key];
+    let valueB = b[key];
+    if (valueA < valueB) {
+      return this.sortOrder === 'asc' ? -1 : 1;
+    } else if (valueA > valueB) {
+      return this.sortOrder === 'asc' ? 1 : -1;
+    }
+    return 0;  // Om värdena är lika, returnera 0
+  });
+}
+
+
   // Filtrerar kurserna baserat på en sökterm.
   filter(searchTerm: string) {
     this.filteredCourses = this.courses.filter(course =>
