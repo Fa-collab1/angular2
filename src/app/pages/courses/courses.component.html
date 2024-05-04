@@ -10,7 +10,7 @@
 <ng-template #noDataTemplate>
   <p class="error">No courses available.</p>
 </ng-template>
-<input type="text" placeholder="Search courses..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()">
+<input type="text" placeholder="Filter courses..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()">
 
 <table *ngIf="courses.length; else noDataTemplate">
     <thead>
@@ -33,7 +33,7 @@
 
 <footer>
      <details>
-    <summary>Klicka här för att läsa mer om applikationen</summary>
+    <summary>Press here to read more about this application</summary>
     <h1 id="course-overview-application-my-2nd-angular-application">Course
       Overview Application (My 2nd Angular Application)</h1>
       <p>This project was generated with <a
