@@ -1,0 +1,27 @@
+<div *ngIf="error" class="error">{{ error }}</div>
+<input type="text" placeholder="Search courses..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()">
+
+<table *ngIf="courses.length; else noDataTemplate">
+    <thead>
+        <tr>
+          <th (click)="sort('code')">Course Code</th>
+          <th (click)="sort('coursename')">Course Name</th>
+          <th (click)="sort('progression')">Progression</th>
+          <th>Syllabus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of filteredCourses">
+            <td>{{ course['code'] }}</td>
+            <td>{{ course['coursename'] }}</td>
+            <td>{{ course['progression'] }}</td>
+            <td>
+              <a href="{{ course['syllabus'] }}" target="_blank">Syllabus</a>
+            </td>
+          </tr>
+      </tbody>
+</table>
+
+<ng-template #noDataTemplate>
+  <p>No courses available.</p>
+</ng-template>
